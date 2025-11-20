@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बिहार GS1 टॉपिक्स - एडवांस एडमिन पैनल | Bihar Exam Prep</title>
+    <meta name="description" content="BPSC GS1 टॉपिक्स का एडवांस एडमिन पैनल - रिच टेक्स्ट एडिटिंग के साथ">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Quill Rich Text Editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #06b6d4;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --sidebar: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--sidebar);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            padding: 0 2rem 2rem;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: #f8fafc;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .content-area {
+            padding: 2rem;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--darker);
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .panel-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+
+        .panel-header h2 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .panel-body {
+            padding: 2rem;
+        }
+
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--darker);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control.select {
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Rich Text Editor */
+        .editor-container {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        #editor {
+            height: 300px;
+            background: white;
+        }
+
+        .ql-toolbar {
+            border-bottom: 1px solid #e2e8f0 !important;
+            background: #f8fafc;
+        }
+
+        .ql-container {
+            border: none !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--warning);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Topics Grid */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .topic-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--darker);
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-category {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .topic-content {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .topic-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+
+        .topic-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .topic-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        .importance-stars {
+            color: #f59e0b;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Bihar Exam Prep</h1>
+                <p>एडमिन पैनल</p>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        डैशबोर्ड
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-plus-circle"></i>
+                        नया टॉपिक
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-list"></i>
+                        सभी टॉपिक्स
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        एनालिटिक्स
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        सेटिंग्स
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        लॉगआउट
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div>
+                    <h2 style="color: var(--darker);">बिहार GS1 टॉपिक्स मैनेजमेंट</h2>
+                    <p style="color: var(--gray); margin-top: 0.5rem;">एडवांस एडमिन पैनल</p>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div>
+                        <div style="font-weight: 600; color: var(--darker);">अनुराग</div>
+                        <div style="font-size: 0.9rem; color: var(--gray);">सुपर एडमिन</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Cards -->
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 id="totalTopics">0</h3>
+                        <p>कुल टॉपिक्स</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3 id="historyTopics">0</h3>
+                        <p>इतिहास टॉपिक्स</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 id="cultureTopics">0</h3>
+                        <p>संस्कृति टॉपिक्स</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 id="geographyTopics">0</h3>
+                        <p>भूगोल टॉपिक्स</p>
+                    </div>
+                </div>
+
+                <!-- Admin Panel -->
+                <div class="admin-panel">
+                    <div class="panel-header">
+                        <h2>
+                            <i class="fas fa-plus-circle"></i>
+                            नया टॉपिक जोड़ें
+                        </h2>
+                    </div>
+                    <div class="panel-body">
+                        <form id="topicForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="topicTitle">टॉपिक का नाम *</label>
+                                    <input type="text" id="topicTitle" class="form-control" placeholder="उदाहरण: पटना कलम" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="topicCategory">श्रेणी *</label>
+                                    <select id="topicCategory" class="form-control select" required>
+                                        <option value="">श्रेणी चुनें</option>
+                                        <option value="history">इतिहास</option>
+                                        <option value="culture">संस्कृति</option>
+                                        <option value="geography">भूगोल</option>
+                                        <option value="art">कला</option>
+                                        <option value="architecture">वास्तुकला</option>
+                                        <option value="society">समाज</option>
+                                        <option value="economy">अर्थव्यवस्था</option>
+                                        <option value="bihar-special">बिहार विशेष</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="topicImportance">महत्व रेटिंग</label>
+                                    <select id="topicImportance" class="form-control select">
+                                        <option value="5">⭐⭐⭐⭐⭐ (बहुत महत्वपूर्ण)</option>
+                                        <option value="4">⭐⭐⭐⭐ (महत्वपूर्ण)</option>
+                                        <option value="3">⭐⭐⭐ (मध्यम)</option>
+                                        <option value="2">⭐⭐ (कम)</option>
+                                        <option value="1">⭐ (बहुत कम)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="topicTags">टैग्स (comma separated)</label>
+                                    <input type="text" id="topicTags" class="form-control" placeholder="उदाहरण: कला, चित्रकला, बिहार">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>टॉपिक विवरण *</label>
+                                <div class="editor-container">
+                                    <div id="editor"></div>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> टॉपिक सेव करें
+                                </button>
+                                <button type="button" class="btn btn-outline" onclick="clearForm()">
+                                    <i class="fas fa-times"></i> क्लियर करें
+                                </button>
+                                <button type="button" class="btn btn-success" onclick="exportTopics()">
+                                    <i class="fas fa-download"></i> एक्सपोर्ट
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Topics Grid -->
+                <div id="topicsContainer" class="topics-grid">
+                    <!-- Topics will be dynamically added here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Quill Rich Text Editor -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        // Initialize Quill Editor
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'indent': '-1'}, { 'indent': '+1' }],
+                    ['link', 'image', 'video'],
+                    ['blockquote', 'code-block'],
+                    ['clean']
+                ]
+            },
+            placeholder: 'टॉपिक का विस्तृत विवरण लिखें...'
+        });
+
+        // Sample topics data
+        const sampleTopics = [
+            {
+                id: 1,
+                title: "पटना कलम",
+                category: "art",
+                content: "<h3>ऐतिहासिक पृष्ठभूमि</h3><p>पटना कलम 17वीं-19वीं शताब्दी के मध्य विकसित हुई एक विशिष्ट चित्रकला शैली है।</p><p><strong>विशेषताएं:</strong></p><ul><li>यथार्थवादी दृष्टिकोण</li><li>आम जनजीवन के दृश्य</li><li>मुगल + यूरोपीय प्रभाव</li></ul>",
+                importance: 5,
+                tags: ["कला", "चित्रकला", "बिहार"],
+                date: "2024-01-15"
+            },
+            {
+                id: 2,
+                title: "मधुबनी पेंटिंग",
+                category: "art",
+                content: "<h3>मिथिला की कला</h3><p>मधुबनी पेंटिंग की परंपरा मिथिला क्षेत्र में 2500 वर्षों से चली आ रही है।</p><p><em>मान्यता है कि राजा जनक के समय में सीता के विवाह के अवसर पर इसकी शुरुआत हुई।</em></p>",
+                importance: 5,
+                tags: ["कला", "मिथिला", "लोककला"],
+                date: "2024-01-14"
+            }
+        ];
+
+        let topics = JSON.parse(localStorage.getItem('biharTopics')) || sampleTopics;
+        let editId = null;
+
+        // Initialize the page
+        function init() {
+            renderTopics();
+            updateStats();
+        }
+
+        // Render all topics
+        function renderTopics() {
+            const container = document.getElementById('topicsContainer');
+            container.innerHTML = '';
+
+            topics.forEach(topic => {
+                const topicCard = document.createElement('div');
+                topicCard.className = 'topic-card';
+                topicCard.innerHTML = `
+                    <div class="topic-header">
+                        <div style="flex: 1;">
+                            <div class="topic-title">${topic.title}</div>
+                            <span class="topic-category">${getCategoryName(topic.category)}</span>
+                        </div>
+                        <div class="topic-actions">
+                            <button class="btn btn-primary btn-sm" onclick="editTopic(${topic.id})">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteTopic(${topic.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="topic-content">${topic.content}</div>
+                    <div class="topic-meta">
+                        <div>
+                            <span class="importance-stars">${'⭐'.repeat(topic.importance)}</span>
+                            <span style="margin-left: 10px; color: #64748b;">${topic.tags.join(', ')}</span>
+                        </div>
+                        <div style="color: #94a3b8;">${topic.date}</div>
+                    </div>
+                `;
+                container.appendChild(topicCard);
+            });
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('totalTopics').textContent = topics.length;
+            document.getElementById('historyTopics').textContent = topics.filter(t => t.category === 'history').length;
+            document.getElementById('cultureTopics').textContent = topics.filter(t => t.category === 'culture').length;
+            document.getElementById('geographyTopics').textContent = topics.filter(t => t.category === 'geography').length;
+        }
+
+        // Get category name in Hindi
+        function getCategoryName(category) {
+            const categories = {
+                'history': 'इतिहास',
+                'culture': 'संस्कृति',
+                'geography': 'भूगोल',
+                'art': 'कला',
+                'architecture': 'वास्तुकला',
+                'society': 'समाज',
+                'economy': 'अर्थव्यवस्था',
+                'bihar-special': 'बिहार विशेष'
+            };
+            return categories[category] || category;
+        }
+
+        // Handle form submission
+        document.getElementById('topicForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('topicTitle').value;
+            const category = document.getElementById('topicCategory').value;
+            const content = quill.root.innerHTML;
+            const importance = parseInt(document.getElementById('topicImportance').value);
+            const tags = document.getElementById('topicTags').value.split(',').map(tag => tag.trim()).filter(tag => tag);
+            
+            const topic = {
+                id: editId || Date.now(),
+                title,
+                category,
+                content,
+                importance,
+                tags,
+                date: new Date().toISOString().split('T')[0]
+            };
+
+            if (editId) {
+                // Update existing topic
+                const index = topics.findIndex(t => t.id === editId);
+                topics[index] = topic;
+                editId = null;
+            } else {
+                // Add new topic
+                topics.push(topic);
+            }
+
+            // Save to localStorage
+            localStorage.setItem('biharTopics', JSON.stringify(topics));
+            
+            // Update UI
+            renderTopics();
+            updateStats();
+            clearForm();
+            
+            showNotification(editId ? 'टॉपिक अपडेट हो गया!' : 'नया टॉपिक जोड़ दिया गया!', 'success');
+        });
+
+        // Edit topic
+        function editTopic(id) {
+            const topic = topics.find(t => t.id === id);
+            if (topic) {
+                document.getElementById('topicTitle').value = topic.title;
+                document.getElementById('topicCategory').value = topic.category;
+                quill.root.innerHTML = topic.content;
+                document.getElementById('topicImportance').value = topic.importance;
+                document.getElementById('topicTags').value = topic.tags.join(', ');
+                
+                editId = id;
+                
+                // Scroll to form
+                document.getElementById('topicForm').scrollIntoView({ behavior: 'smooth' });
+                
+                showNotification('टॉपिक एडिट मोड में है', 'info');
+            }
+        }
+
+        // Delete topic
+        function deleteTopic(id) {
+            if (confirm('क्या आप वाकई इस टॉपिक को डिलीट करना चाहते हैं?')) {
+                topics = topics.filter(t => t.id !== id);
+                localStorage.setItem('biharTopics', JSON.stringify(topics));
+                renderTopics();
+                updateStats();
+                showNotification('टॉपिक डिलीट हो गया!', 'warning');
+            }
+        }
+
+        // Clear form
+        function clearForm() {
+            document.getElementById('topicForm').reset();
+            quill.root.innerHTML = '';
+            editId = null;
+            showNotification('फॉर्म क्लियर हो गया', 'info');
+        }
+
+        // Export topics
+        function exportTopics() {
+            const data = JSON.stringify(topics, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'bihar-topics-backup.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            showNotification('टॉपिक्स एक्सपोर्ट हो गए!', 'success');
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                background: ${type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : type === 'danger' ? '#ef4444' : '#06b6d4'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                font-weight: 500;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
