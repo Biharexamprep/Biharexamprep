@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPSC प्रीलिम्स तैयारी - Bihar Exam Prep</title>
+    <meta name="description" content="BPSC प्रीलिम्स परीक्षा की संपूर्ण तैयारी। सामान्य अध्ययन, करेंट अफेयर्स, मॉक टेस्ट और प्रैक्टिस सेशन।">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset और Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .logo-text h1 {
+            color: var(--darker);
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 5% 80px;
+            text-align: center;
+            color: white;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="rgba(255,255,255,0.05)" d="M0,0 Q600,150 1200,0 L1200,800 Q600,650 0,800 Z"/></svg>') no-repeat bottom;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Subjects Grid */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .subject-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .subject-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            background: linear-gradient(135deg, var(--success), #059669);
+        }
+
+        .subject-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--darker);
+        }
+
+        .topic-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .topic-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .topic-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Mock Test Section */
+        .mock-tests {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 4rem 5%;
+            border-radius: 25px;
+            margin: 3rem 0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .tests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .test-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .test-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--darker);
+        }
+
+        .test-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--success);
+            color: var(--success);
+        }
+
+        .btn-outline:hover {
+            background: var(--success);
+            color: white;
+        }
+
+        /* Current Affairs Section */
+        .current-affairs {
+            margin: 4rem 0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .news-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--darker);
+        }
+
+        .news-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-date {
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Study Plan Section */
+        .study-plan {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .plan-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .plan-step {
+            text-align: center;
+            color: white;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--darker), #0a0f1c);
+            color: white;
+            padding: 3rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .designer-credit {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .designer-credit p {
+            color: #94a3b8;
+        }
+
+        .designer-credit .highlight {
+            background: linear-gradient(135deg, var(--accent), #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .subjects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subject-card {
+                padding: 2rem;
+            }
+
+            .tests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Bihar Exam Prep</h1>
+                        <p>BPSC Success Pathway</p>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> होम</a></li>
+                <li><a href="prelims.html" class="active"><i class="fas fa-file-alt"></i> प्रीलिम्स</a></li>
+                <li><a href="gs1/index.html"><i class="fas fa-landmark"></i> जीएस 1</a></li>
+                <li><a href="gs2/index.html"><i class="fas fa-balance-scale"></i> जीएस 2</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>BPSC प्रीलिम्स तैयारी</h1>
+            <p>सामान्य अध्ययन और करेंट अफेयर्स की संपूर्ण तैयारी</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#subjects" class="btn btn-primary">
+                    <i class="fas fa-book"></i> विषयवार अध्ययन
+                </a>
+                <a href="#mock-tests" class="btn btn-outline" style="color: white; border-color: white;">
+                    <i class="fas fa-clipboard-list"></i> मॉक टेस्ट
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Subjects Section -->
+        <section id="subjects">
+            <div class="section-title">
+                <h2>विषयवार अध्ययन सामग्री</h2>
+                <p>प्रीलिम्स के सभी महत्वपूर्ण विषयों की संपूर्ण तैयारी</p>
+            </div>
+
+            <div class="subjects-grid">
+                <!-- History Card -->
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>इतिहास</h3>
+                    <ul class="topic-list">
+                        <li>प्राचीन भारत का इतिहास</li>
+                        <li>मध्यकालीन भारत</li>
+                        <li>आधुनिक भारत</li>
+                        <li>भारतीय स्वतंत्रता संग्राम</li>
+                        <li>बिहार का इतिहास</li>
+                    </ul>
+                    <a href="history-topics.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> अध्ययन शुरू करें
+                    </a>
+                </div>
+
+                <!-- Geography Card -->
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>भूगोल</h3>
+                    <ul class="topic-list">
+                        <li>भारत का भूगोल</li>
+                        <li>विश्व भूगोल</li>
+                        <li>पर्यावरण और पारिस्थितिकी</li>
+                        <li>भू-विज्ञान</li>
+                        <li>बिहार का भूगोल</li>
+                    </ul>
+                    <a href="geography-topics.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> अध्ययन शुरू करें
+                    </a>
+                </div>
+
+                <!-- Polity Card -->
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>राजव्यवस्था</h3>
+                    <ul class="topic-list">
+                        <li>भारतीय संविधान</li>
+                        <li>राजनीतिक व्यवस्था</li>
+                        <li>केंद्र-राज्य संबंध</li>
+                        <li>अंतर्राष्ट्रीय संगठन</li>
+                        <li>बिहार की राजनीति</li>
+                    </ul>
+                    <a href="polity-topics.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> अध्ययन शुरू करें
+                    </a>
+                </div>
+
+                <!-- Economy Card -->
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>अर्थव्यवस्था</h3>
+                    <ul class="topic-list">
+                        <li>भारतीय अर्थव्यवस्था</li>
+                        <li>बजट और कर प्रणाली</li>
+                        <li>बैंकिंग और वित्त</li>
+                        <li>कृषि और उद्योग</li>
+                        <li>बिहार की अर्थव्यवस्था</li>
+                    </ul>
+                    <a href="economy-topics.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> अध्ययन शुरू करें
+                    </a>
+                </div>
+
+                <!-- Science Card -->
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>विज्ञान और प्रौद्योगिकी</h3>
+                    <ul class="topic-list">
+                        <li>भौतिक विज्ञान</li>
+                        <li>रसायन विज्ञान</li>
+                        <li>जीव विज्ञान</li>
+                        <li>प्रौद्योगिकी विकास</li>
+                        <li>स्वास्थ्य और चिकित्सा</li>
+                    </ul>
+                    <a href="science-topics.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> अध्ययन शुरू करें
+                    </a>
+                </div>
+
+                <!-- Current Affairs Card -->
+                <div class="subject-card">
+                    <div class="subject-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>करेंट अफेयर्स</h3>
+                    <ul class="topic-list">
+                        <li>राष्ट्रीय समाचार</li>
+                        <li>अंतर्राष्ट्रीय समाचार</li>
+                        <li>खेल और मनोरंजन</li>
+                        <li>पुरस्कार और सम्मान</li>
+                        <li>बिहार समाचार</li>
+                    </ul>
+                    <a href="current-affairs.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> अध्ययन शुरू करें
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mock Tests Section -->
+        <section id="mock-tests" class="mock-tests">
+            <div class="section-title">
+                <h2>मॉक टेस्ट सीरीज</h2>
+                <p>अपनी तैयारी को परखें और सुधारें</p>
+            </div>
+
+            <div class="tests-grid">
+                <div class="test-card">
+                    <h4>फुल लेंथ मॉक टेस्ट</h4>
+                    <p>150 Questions • 2 Hours</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Start Test
+                    </a>
+                </div>
+
+                <div class="test-card">
+                    <h4>साप्ताहिक टेस्ट सीरीज</h4>
+                    <p>100 Questions • 1.5 Hours</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Start Test
+                    </a>
+                </div>
+
+                <div class="test-card">
+                    <h4>विषयवार टेस्ट</h4>
+                    <p>50 Questions • 45 Minutes</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Start Test
+                    </a>
+                </div>
+
+                <div class="test-card">
+                    <h4>पिछले वर्ष के प्रश्न</h4>
+                    <p>Previous Year Papers</p>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Start Test
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Affairs Section -->
+        <section class="current-affairs">
+            <div class="section-title">
+                <h2>ताज़ा करेंट अफेयर्स</h2>
+                <p>हाल ही की महत्वपूर्ण घटनाएं और समाचार</p>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <h4>बिहार सरकार की नई योजना</h4>
+                    <p>बिहार सरकार ने युवाओं के लिए नई रोजगार योजना शुरू की...</p>
+                    <div class="news-date">15 दिसंबर 2024</div>
+                </div>
+
+                <div class="news-card">
+                    <h4>केंद्र सरकार का नया बजट</h4>
+                    <p>वित्त मंत्री ने नए बजट की घोषणा की, शिक्षा क्षेत्र को मिला बढ़ावा...</p>
+                    <div class="news-date">12 दिसंबर 2024</div>
+                </div>
+
+                <div class="news-card">
+                    <h4>अंतर्राष्ट्रीय सम्मेलन</h4>
+                    <p>जलवायु परिवर्तन पर G20 सम्मेलन में भारत की सक्रिय भागीदारी...</p>
+                    <div class="news-date">10 दिसंबर 2024</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Plan Section -->
+        <section class="study-plan">
+            <div class="section-title">
+                <h2>90 दिवसीय अध्ययन योजना</h2>
+                <p>संरचित तरीके से प्रीलिम्स की तैयारी करें</p>
+            </div>
+
+            <div class="plan-steps">
+                <div class="plan-step">
+                    <div class="step-number">1</div>
+                    <h4>फाउंडेशन चरण</h4>
+                    <p>पहले 30 दिन - बेसिक concepts की तैयारी</p>
+                </div>
+
+                <div class="plan-step">
+                    <div class="step-number">2</div>
+                    <h4>रिवीजन चरण</h4>
+                    <p>अगले 30 दिन - revision और practice</p>
+                </div>
+
+                <div class="plan-step">
+                    <div class="step-number">3</div>
+                    <h4>मॉक टेस्ट चरण</h4>
+                    <p>आखिरी 30 दिन - test series और improvement</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bihar Exam Prep</h3>
+                <p>BPSC प्रीलिम्स तैयारी का विश्वसनीय स्रोत</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>त्वरित लिंक</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">होम</a></li>
+                    <li><a href="prelims.html">प्रीलिम्स</a></li>
+                    <li><a href="gs1/index.html">जीएस 1</a></li>
+                    <li><a href="gs2/index.html">जीएस 2</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>संपर्क करें</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> contact@biharexamprep.com</li>
+                    <li><i class="fas fa-phone"></i> +91 XXXXX XXXXX</li>
+                    <li><i class="fas fa-map-marker-alt"></i> पटना, बिहार</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Designer Credit -->
+        <div class="designer-credit">
+            <p>Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> by <span class="highlight">Anurag</span></p>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Bihar Exam Prep. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
